@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "MozIta L10n Addons",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Permette di copiare il carattere/simbolo desiderato con un singolo clic e di effettuare una ricerca su Transvision. Realizzato per il team L10n di Mozilla Italia.",
 
@@ -15,6 +15,14 @@
   "applications": {
     "gecko": {
       "id": "mozillaitalial10n@saveriomorelli.com"
+    }
+  },
+
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+I"
+      }
     }
   },
 
