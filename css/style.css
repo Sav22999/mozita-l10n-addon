@@ -12,14 +12,14 @@ body {
     background-color: transparent;
     color: black;
     width: 284px;
-    height: 284px;
+    height: 288px;
     overflow: hidden;
     font-family: zilla slab;
 }
 
 #popup-content {
-    width: 284px;
-    height: 284px;
+    width: 100%;
+    height: 100%;
     margin: 0px;
     background-color: transparent;
     border: 1px solid transparent;
@@ -50,6 +50,7 @@ body {
     font: inherit;
     font-size: 14px;
     transition: 0.1s;
+    margin-top: 10px;
 }
 
 #key:hover {
@@ -57,12 +58,12 @@ body {
 }
 
 #key:focus {
-    border: 1px solid #0a84ff;
-    box-shadow: 0px 0px 0px 1px #0a84ff, 0px 0px 0px 4px #b1d6fc;
+    border: 1px solid rgb(245, 245, 245);
+    box-shadow: 0px 0px 0px 2px #0a84ff, 0px 0px 0px 5px #b1d6fc;
 }
 
 
-#search-box > #search-submit {
+#search-submit {
     border: 0px solid transparent;
     border-radius: 3px;
     height: 32px;
@@ -80,11 +81,11 @@ body {
     background-color: rgb(225, 225, 226);
 }
 
-#search-box > #search-submit:hover {
+#search-submit:hover {
     background-color: #b1d6fc;
 }
 
-#search-box > #search-submit:focus {
+#search-submit:focus {
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 0px 2px #0a84ff, 0px 0px 0px 5px #b1d6fc;
 }
@@ -93,7 +94,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 65px;
+    top: 70px;
     left: 0px;
     padding: 4px;
     overflow: hidden;
@@ -157,6 +158,45 @@ b.character-copied {
     text-align: center;
     width: auto;
     font-weight: bold;
+}
+
+.tab {
+    color: inherit;
+    background-color: rgb(235, 235, 235);
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab:hover {
+    background-color: rgb(221, 222, 223);
+}
+
+.tab-left {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: 1px solid rgb(221, 222, 223);
+}
+
+.tab-right {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.tab-center {
+    border-radius: 3px;
+}
+
+.tab-selected {
+    color: rgb(221, 222, 223);
+    background-color: #0a84ff;
+}
+.tab-selected:hover {
+    color: rgb(221, 222, 223);
+    background-color: #0a84ff;
 }
 
 h1 {
