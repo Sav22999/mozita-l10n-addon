@@ -6,7 +6,7 @@ Official repo of https://addons.mozilla.org/it/firefox/addon/mozita-l10n-addons/
 
 [<img src="img/badge.png" height="60px">](https://addons.mozilla.org/it/firefox/addon/mozita-l10n-addons/) [<img src="img/a-project-of.png" height="60px" />](https://saveriomorelli.com) [<img src="img/realised-by.png" height="60px" />](https://saveriomorelli.com)
 
-Questa estensione Firefox è stata pensata e realizzata per necessità del team L10n di Mozilla Italia; infatti, permette di copiare con un singolo clic uno dei caratteri presenti nella finestra popup (sono i caratteri maggiormente utilizzati dal team e che non sono presenti sulle tastiere comuni) oppure effettuare una veloce ricerca su Transvision.
+Questa estensione Firefox è stata pensata e realizzata per necessità del team L10n di Mozilla Italia; infatti, permette di copiare con un singolo clic uno dei caratteri presenti nella finestra popup (sono i caratteri maggiormente utilizzati dal team e che non sono presenti sulle tastiere comuni) oppure effettuare una veloce ricerca su Transvision o su Microsoft Language Portal.
 
 Puoi anche aprire velocemente l’estensione con la scorciatoia da tastiera `Ctrl+Alt+I`
 
@@ -17,7 +17,7 @@ Per contribuire è sufficiente aprire un _Issue_ nelle sezione apposita. Segnala
 
 ## Screenshot
 
-<img src="screenshots/screenshot.png" alt="Screenshot" style="zoom:50%;" />
+<img src="screenshots/2.1/1.png" alt="Screenshot" style="zoom:50%;" />
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSav22999%2Fmozita-l10n-addons.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSav22999%2Fmozita-l10n-addons?ref=badge_large)
