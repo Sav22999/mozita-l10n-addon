@@ -1,11 +1,11 @@
 var characters = ["’", "“", "”", "…", "–", "È", "É", "À", "Ì", "Ù", "Ò"]; // SET MANUALLY
-var n_columns_per_row = 6; // SET MANUALLY
+var n_columns_per_row = 8; // SET MANUALLY
 
 
 var n_characters = 0; // Don't change this (it's set automatically later)
-// Don't change {*{key}*}, it indicates the value of the search (it's replaced in a function)
+// Don't change {{key}}, it indicates the value of the search (it's replaced in a function)
 // [0->Transvision]
-var url = ["https://transvision.mozfr.org/?repo=gecko_strings&sourcelocale=en-US&=en-US&locale=it&=it&search_type=strings_entities&=strings_entities&recherche={*{key}*}", "https://www.microsoft.com/en-us/language/Search?&searchTerm={*{key}*}&langID=408&Source=true&productid=0"];
+var url = ["https://transvision.mozfr.org/?repo=gecko_strings&sourcelocale=en-US&=en-US&locale=it&=it&search_type=strings_entities&=strings_entities&recherche={{key}}", "https://www.microsoft.com/en-us/language/Search?&searchTerm={{key}}&langID=408&Source=true&productid=0", "https://pontoon.mozilla.org/it/all-projects/all-resources/?search={{key}}"];
 
 var selectedSearchEngine = 0;
 var char_copied_n = 0;
@@ -75,7 +75,7 @@ function checkSearch() {
 
 function openResults(value, searchEngine) {
     browser.tabs.create({
-        url: url[searchEngine].replace("{*{key}*}", value)
+        url: url[searchEngine].replace("{{key}}", value)
     });
     window.close();
 }
