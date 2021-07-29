@@ -26,7 +26,7 @@ Per contribuire è sufficiente aprire un _Issue_ nelle sezione apposita. Segnala
 
 ## Screenshot
 
-<img src="screenshots/2.1/1.png" alt="Screenshot" style="zoom:50%;" />
+<img src="screenshots/2.2/1.png" alt="Screenshot" style="zoom:50%;" />
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSav22999%2Fmozita-l10n-addons.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSav22999%2Fmozita-l10n-addons?ref=badge_large)
