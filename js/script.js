@@ -1,4 +1,17 @@
-var characters = ["’", "“", "”", "…", "–", "È", "É", "À", "Ì", "Ù", "Ò"]; // SET MANUALLY
+var characters = {
+    "‘": "Virgoletta singola (iniziale)",
+    "’": "Apostrofo oppure virgoletta singola (finale)",
+    "“": "Virgoletta doppia (iniziale)",
+    "”": "Virgoletta doppia (finale)",
+    "…": "Puntini di sospensione",
+    "–": "Trattino alto",
+    "È": "Lettera e accentata grave",
+    "É": "Lettera e accentata acuto (Es. perché, poiché, né)",
+    "À": "Lettera à accentata",
+    "Ì": "Lettera i accentata",
+    "Ù": "Lettera ù accentata",
+    "Ò": "Lettera o accentata"
+}; // SET MANUALLY
 var n_columns_per_row = 8; // SET MANUALLY
 
 
@@ -9,6 +22,8 @@ var url = ["https://transvision.mozfr.org/?repo=gecko_strings&sourcelocale=en-US
 
 var selectedSearchEngine = 0;
 var char_copied_n = 0;
+
+getSettings();
 
 function copyCharacter(text) {
     document.getElementById("text_to_copy").style.display = "block";
@@ -21,10 +36,33 @@ function copyCharacter(text) {
 }
 
 function setCharacters() {
-    n_characters = characters.length;
-    for (var i = 0; i < n_characters; i++) {
-        document.getElementById("characters").innerHTML += "<input type=\"button\" class=\"character\" value=\"" + characters[i] + "\" />";
+    n_characters = Object.keys(characters).length;
+    for (let char in characters) {
+        document.getElementById("characters").innerHTML += "<input type='button' class='character' value='" + char + "' title='" + characters[char] + "' />";
     }
+
+    for (let i = 0; i < n_characters; i++) {
+        document.getElementsByClassName("character")[i].onclick = function (e) {
+            copyCharacter(this.value);
+        };
+    }
+}
+
+function getSettings() {
+    browser.storage.sync.get("search-engine", function (value) {
+        selectedSearchEngine = 0;
+        if (value["search-engine"] != undefined) {
+            //already exist, so set the array at saved status
+            selectedSearchEngine = value["search-engine"];
+        }
+        setSearchEngine(selectedSearchEngine);
+    });
+}
+
+function setSettings(search_engine) {
+    selectedSearchEngine = search_engine;
+    browser.storage.sync.set({"search-engine": selectedSearchEngine}, function () {
+    });
 }
 
 function setWidthHeight() {
@@ -39,11 +77,6 @@ function setWidthHeight() {
     document.body.style.width = width + 4 + "px";
     document.body.style.height = height + 2 + "px";
 
-    for (var i = 0; i < n_characters; i++) {
-        document.getElementsByClassName("character")[i].onclick = function (e) {
-            copyCharacter(this.value);
-        };
-    }
     for (let i = 0; i < url.length; i++) {
         document.getElementsByClassName("tab")[i].onclick = function (e) {
             setSearchEngine(i);
@@ -81,7 +114,7 @@ function openResults(value, searchEngine) {
 }
 
 function setSearchEngine(index = 0) {
-    selectedSearchEngine = index;
+    setSettings(index);
     for (var i = 0; i < url.length; i++) {
         let temp_element = document.getElementsByClassName("tab")[i];
         temp_element.classList.remove("tab-selected");
