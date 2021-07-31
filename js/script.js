@@ -22,17 +22,24 @@ var url = ["https://transvision.mozfr.org/?repo=gecko_strings&sourcelocale=en-US
 
 var selectedSearchEngine = 0;
 var char_copied_n = 0;
+var text_to_copy = "";
 
 getSettings();
 
 function copyCharacter(text) {
-    document.getElementById("text_to_copy").style.display = "block";
-    document.getElementById("text_to_copy").value = text;
-    var copyText = document.getElementById("text_to_copy");
+    let copyText = document.getElementById("text_to_copy");
+    copyText.style.display = "block";
+    text_to_copy = copyText.value + " " + text;
+    copyText.value = text_to_copy;
     copyText.select();
     document.execCommand("copy");
     document.getElementById("text_to_copy").style.display = "none";
-    showMessage();
+    console.log(text_to_copy.split(" "));
+    if (text_to_copy.split(" ").length - 1 > 1) {
+        showMessage("<span class='characters-copied'>" + text_to_copy + "</span> copiati ✔");
+    } else {
+        showMessage("<span class='characters-copied'>" + text_to_copy + "</span> copiato ✔");
+    }
 }
 
 function setCharacters() {
@@ -87,7 +94,7 @@ function setWidthHeight() {
     };
 
     document.getElementById("help-button").onclick = function () {
-        showMessage("Premi sul carattere che ti interessa e sarà copiato negli appunti", "3px", "3px", 6000);
+        showMessage("Premi sul carattere che ti interessa e sarà copiato negli appunti.<br>Puoi copiare più caratteri in una singola sessione.", "3px", "3px", 6000);
     }
 
     document.getElementById("key").onkeypress = function (e) {
@@ -130,13 +137,15 @@ setSearchEngine(0);
 
 document.getElementById("key").focus(); // Set focus on SearchBox when the popup appears
 
-function showMessage(text = "Copiato ✔", left = "30%", right = "30%", time = 1500) {
+function showMessage(text = "", left = "30%", right = "30%", time = 1500) {
+    let textToUse = text;
+    if (textToUse == "") textToUse = "Copiato ✔";
     let index_to_use = char_copied_n;
     char_copied_n++;
     let new_b_element = document.createElement("b");
     new_b_element.className = "character-copied";
     new_b_element.id = "character-copied-" + index_to_use;
-    new_b_element.innerHTML = text;
+    new_b_element.innerHTML = textToUse;
     new_b_element.style.left = left;
     new_b_element.style.right = right;
     document.getElementById("popup-content").append(new_b_element);

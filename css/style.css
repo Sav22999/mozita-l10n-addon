@@ -99,10 +99,10 @@ body {
     overflow: hidden;
 }
 
-#characters > h1 > span {
+#characters > h1 > span#help-button {
     font-size: 14px;
     margin-left: 10px;
-    border-radius: 8px;
+    border-radius: 50%;
     padding-right: 7px;
     padding-left: 7px;
     padding-top: 2px;
@@ -142,8 +142,8 @@ body {
 b.character-copied {
     position: fixed;
     bottom: 3px;
-    right: 30%;
-    left: 30%;
+    right: 20%;
+    left: 20%;
     text-align: center;
     height: auto;
     width: auto;
@@ -218,5 +218,14 @@ h1 {
     margin: 2px;
     padding: 0px;
     text-align: left;
+    font-size: 16px;
+}
+
+.characters-copied {
+    font-family: source code pro;
+    border-radius: 5px;
+    background-color: #2390ff;
+    padding: 3px;
+    padding-bottom: 1px;
     font-size: 16px;
 }
