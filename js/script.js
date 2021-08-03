@@ -29,12 +29,12 @@ getSettings();
 function copyCharacter(text) {
     let copyText = document.getElementById("text_to_copy");
     copyText.style.display = "block";
-    text_to_copy = copyText.value + " " + text;
+    text_to_copy = copyText.value + "" + text;
     copyText.value = text_to_copy;
     copyText.select();
     document.execCommand("copy");
     document.getElementById("text_to_copy").style.display = "none";
-    console.log(text_to_copy.split(" "));
+    //console.log(text_to_copy.split(" "));
     if (text_to_copy.split(" ").length - 1 > 1) {
         showMessage("<span class='characters-copied'>" + text_to_copy + "</span> copiati ✔");
     } else {
